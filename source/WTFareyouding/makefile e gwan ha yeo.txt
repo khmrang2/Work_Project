@@ -1,0 +1,27 @@
+Incremental build란 반복적인 빌드 과정에서
+변경된 소스코드에 의존성(Dependency)이 있는 대상들만 추려서 
+다시 빌드하는 기능입니다. 
+예를 들어, 위의 빌드 예제에서 main.c의 한 줄만 바꾸고 
+다시 빌드를 할 때, main.o 컴파일(gcc -c -o main.o main.c)과
+app.out링크(gcc -o app.out main.o foo.o bar.o)만 수행하는 경우가 
+이에 해당합니다.
+
+ 양식 ? 
+<Target>: <Dependencies>
+    <Recipe>
+	
+-> 여기서 Dependencies가 Incremetnal build의 핵심
+	소스코드에 의존성이 있으므로 해당하는 것만 컴파일 ? 
+	
+MAKEFILE의 내장변수
+
+CC: 컴파일러
+CFLAGS: 컴파일 옵션
+OBJS: 중간 산물 Object 파일 목록
+TARGET: 빌드 대상(실행 파일) 이름
+그 외에 자주 사용되는 내장 변수는 다음과 같습니다.
+
+LDFLAGS: 링커 옵션
+LDLIBS: 링크 라이브러리
+
+http://www.gnu.org/software/make/manual/make.html
