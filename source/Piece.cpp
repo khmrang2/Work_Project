@@ -1,11 +1,16 @@
 #include "Piece.h"
 
 Piece::Piece(int live, int color, int con){
-	SetPiece(live, color, con);
+	SetStat(live, color, con);
 }
 
-void Piece::SetPiece(int live, int color, int con){
-	this->live = live;
-	this->color = color;
-	this->con = con;
+void Piece::SetStat(int live, int color, int con){
+	this->stat.live = live;
+	this->stat.color = color;
+	this->stat.con = con;
+}
+
+void Piece::SetLocate(int x, int y){
+	this->locate.x = x;
+	this->locate.y = y;
 }
